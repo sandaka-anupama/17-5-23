@@ -1,0 +1,19 @@
+class Solution(object):
+    def findPairs(self, nums, k):
+        result=set()
+        i=0
+        j=1
+        n=len(nums)
+        nums.sort()
+        while j<n:
+            if nums[j]-nums[i]==k:
+                result.add((nums[i],nums[j]))
+                i=i+1
+                j=i+1
+            
+            elif nums[j]-nums[i]>k:
+                i=i+1
+                j=j+1
+            else:
+                j=j+1
+        return len(result)
